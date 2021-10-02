@@ -1,0 +1,195 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+ int data;
+ struct node *next;
+}*first;
+void create()
+{
+ int d;
+ struct node *nn,*temp;
+ while(1)
+ {
+  printf("Enter data,-99 to stop: ");
+  scanf("%d",&d);
+  if(d==-99)
+   break;
+  else
+  {
+   nn=(struct node *)malloc(sizeof(struct node));
+   nn->data=d;
+   nn->next=NULL;
+   if(first==NULL)
+    first=nn;
+   else
+   {
+    temp=first;
+    while(temp->next!=NULL)
+     temp=temp->next;
+    temp->next=nn;
+   }
+  }
+ }
+}
+void display()
+{
+ struct node *temp;
+ if(first==NULL)
+  printf("List is empty");
+ temp=first;
+ while(temp!=NULL)
+ {
+  printf("%d\t",temp->data);
+  temp=temp->next;
+ }
+ printf("\n");
+}
+void count()
+{
+ int n=0;
+ struct node *temp;
+ if(first==NULL)
+  printf("List is empty");
+ else
+  temp=first;
+  while(temp!=NULL)
+  {
+   temp=temp->next;
+   n++;
+  }
+  printf("Number of elements= %d\n",n);
+}
+void search()
+{
+ int ele,flag=0;
+ struct node *temp;
+ if(first==NULL)
+  printf("List is empty");
+ else
+ {
+	printf("Enter element to be searched: ");
+	scanf("%d",&ele);
+	temp=first;
+	while(temp->next!=NULL)
+	{
+		if(temp->data==ele)
+		{
+			flag=1;
+			break;
+		}
+		temp=temp->next;
+	}
+	if(flag==1)
+		printf("elemnt is found\n");
+	else
+		printf("element not found\n");
+ }
+}
+ void insertion()
+ {
+	struct node *nn,*temp;
+	int d,op,p,c=1;
+	printf("Enter	1:Begin Insertion\n\t2:Position Insertion\n\t3.End Insertion\n");
+	scanf("%d",&op);
+	printf("Enter element to be inserted\n");
+	scanf("%d",&d);
+	nn=(struct node *)malloc(sizeof(struct node));
+	nn->data=d;
+	nn->next=NULL;
+	if(op==1)
+	{
+		nn->next=first;
+		first=nn;
+		display();
+	}
+	else if(op==2)
+	{
+		printf("Enter position to be inserted\n");
+		scanf("%d",&p);
+		temp=first;
+		while(c<p-1)
+		{
+			temp=temp->next;
+			c++;
+		}
+		nn->next=temp->next;
+		temp->next=nn;
+		display();
+	}
+	else if(op==3)
+	{
+		temp=first;
+		while(temp->next!=NULL)
+			temp=temp->next;
+		temp->next=nn;
+		display();
+	}
+ }
+ void deletion()
+ {
+	struct node *t,*temp;
+	int op,p,c=1;
+	printf("Enter	1:Begin deletion\n\t2:Position deletion\n\t3.End deletion\n");
+	scanf("%d",&op);
+	if(op==1)
+	{
+		t=first;
+		first=first->next;
+		printf("The deleted element =%d\n",t->data);
+		free(t);
+		display();
+	}
+	else if(op==2)
+	{
+		temp=first;
+		printf("Enter the position for deletion\n");
+		scanf("%d",&p);
+		while(c<p-1)
+		{
+			temp=temp->next;
+			c++;
+		}
+		t=temp->next;
+		temp->next=temp->next->next;
+		printf("Deleted elemnt= %d\n",t->data);
+		free(t);
+		display();
+	}
+	else if(op==3)
+	{
+		temp=first;
+		while(temp->next->next!=NULL)
+			temp=temp->next;
+		t=temp->next;
+		temp->next=NULL;
+		printf("Deleted data =%d\n",t->data);
+		free(t);
+		display();
+	}
+ }
+ void main()
+ {
+  int op;
+  do
+  {
+	printf(" Enter	1:Create\n\t2:Insert\n\t3:Delete\n\t4:Search\n\t5:Count\n\t6:Display\n\t7:exit\n");
+	scanf("%d",&op);
+	switch(op)
+	{
+		case 1: create();
+			break;
+		case 2: insertion();
+			break;
+		case 3: deletion();
+			break;
+		case 4: search();
+			break;
+		case 5: count();
+			break;
+		case 6: display();
+			break;
+	}
+  }
+  while (op!=7);
+ }
