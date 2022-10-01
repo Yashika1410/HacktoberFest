@@ -1,15 +1,15 @@
 # HacktoberFest
 Hacktoberfest
 
-<img alt="HF2021" src="https://github.com/Yashika1410/HacktoberFest/blob/main/hacktober.png">
+<img alt="HF2022" src="hacktober.png">
 
-### :octocat: Open your first pull request for the Hacktoberfest 2021 challenge.
+### :octocat: Open your first pull request for the Hacktoberfest 2022 challenge.
 
 
 ## How to make your first pull request?
 
 ### Step#1: Star this repo 🌟
-<img width="100%" alt="Star this repo for hacktoberfest" src="https://github.com/Yashika1410/HacktoberFest/blob/main/Star.png">
+<img width="100%" alt="Star this repo for hacktoberfest" src="Star.png">
 
 ### Step#2: Show some love 😄 
 <a href="https://github.com/Yashika1410" aria-label="Follow @Yashika1410 on GitHub"><img  src="https://img.shields.io/badge/Follow👉-@Yashika1410-pink?style=for-the-badge"  />
